@@ -38,7 +38,7 @@ vercel dev
 
 ## Live demo
 
-[your deployed Vercel URL here]
+https://decision-xray.vercel.app
 
 ## AI Usage Disclosure
 
