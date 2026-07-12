@@ -3,6 +3,7 @@ import { scenarios } from "./data/scenarios";
 import EvidenceTrail from "./components/EvidenceTrail";
 import UncertaintyAnalyzer from "./components/UncertaintyAnalyzer";
 import ScenarioPicker from "./components/ScenarioPicker";
+import CollapsibleSection from "./components/CollapsibleSection";
 import HumanReviewMode from "./components/HumanReviewMode";
 import TrustDashboard from "./components/TrustDashboard";
 import DecisionInput from "./components/DecisionInput";
@@ -88,10 +89,33 @@ export default function App() {
       {error && <div className="text-bad text-sm mt-3">{error}</div>}
 
       <FactorBreakdown result={result} />
-      <UncertaintyAnalyzer uncertainty={result?.uncertainty} />
-      <EvidenceTrail evidenceTrail={result?.evidenceTrail} />
-      <TrustDashboard trustDimensions={result?.trustDimensions} />
-      <HumanReviewMode result={result} key={JSON.stringify(result?.decision)} />
+
+      {result && (
+        <>
+          <CollapsibleSection
+            title="Uncertainty Analyzer"
+            subtitle="Gaps in the data that could change this decision if resolved."
+            defaultOpen={true}
+          >
+            <UncertaintyAnalyzer uncertainty={result?.uncertainty} />
+          </CollapsibleSection>
+
+          <CollapsibleSection
+            title="Evidence Trail"
+            subtitle="Every conclusion traced back to what kind of evidence supports it."
+          >
+            <EvidenceTrail evidenceTrail={result?.evidenceTrail} />
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Trust Score Dashboard">
+            <TrustDashboard trustDimensions={result?.trustDimensions} />
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Human Review Mode" subtitle="You are the human reviewer.">
+            <HumanReviewMode result={result} key={JSON.stringify(result?.decision)} />
+          </CollapsibleSection>
+        </>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function HumanReviewMode({ result }) {
-  const [reviewerDecision, setReviewerDecision] = useState(null); // "uphold" | "override"
+  const [reviewerDecision, setReviewerDecision] = useState(null);
   const [justification, setJustification] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
@@ -19,12 +19,7 @@ export default function HumanReviewMode({ result }) {
   };
 
   return (
-    <div className="bg-panel border border-border rounded-lg p-4 mt-4">
-      <div className="text-xs text-gray-400 mb-1">Human Review Mode</div>
-      <div className="text-sm text-gray-300 mb-3">
-        You are the human reviewer. The AI has made its call — do you uphold it or override it?
-      </div>
-
+    <div>
       <div className="border border-border rounded-md p-3 mb-3 bg-bg">
         <div className="text-xs text-gray-400 mb-1">AI Decision</div>
         <div className="text-sm font-semibold">{result.decision}</div>
@@ -97,10 +92,7 @@ export default function HumanReviewMode({ result }) {
             </div>
           )}
 
-          <button
-            onClick={handleReset}
-            className="text-xs text-gray-400 underline"
-          >
+          <button onClick={handleReset} className="text-xs text-gray-400 underline">
             Reset review
           </button>
         </div>

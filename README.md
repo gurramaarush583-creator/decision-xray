@@ -1,16 +1,49 @@
-# React + Vite
+# AI Decision X-Ray
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**See what's really behind an AI's decision — the factors, the uncertainty, and the bias it won't tell you about.**
 
-Currently, two official plugins are available:
+Built for Hoobit Hacks 2026 (Theme: AI Apocalypse)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What it does
 
-## React Compiler
+Most "AI decision" tools show you a black box: input goes in, a verdict comes out. Decision X-Ray does the opposite — it exposes the entire reasoning process behind a simulated AI decision (loan approval, college admission, or job hiring), including:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Contributing Factors** — weighted breakdown of what drove the decision
+- **Counterfactual Playground** — drag sliders (credit score, GPA, experience, etc.) and watch the decision update live
+- **Uncertainty Analyzer** — flags what information was missing or unclear, and how much it mattered
+- **Evidence Trail** — every conclusion tagged as an observed fact, an inference, or an assumption
+- **Trust Score Dashboard** — multi-dimensional scoring: explainability, data completeness, robustness, and how much human oversight is needed
+- **Human Review Mode** — act as a human reviewer, uphold or override the AI's call, and compare your reasoning against the AI's
 
-## Expanding the ESLint configuration
+## Why this matters (theme fit)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+AI systems already make consequential decisions about people's loans, education, and jobs — often without explanation. This project makes that opacity visible and interactive, so users can see not just *what* an AI decided, but *how confident it really was*, *what it didn't know*, and *where a human should step in*. It's built to spark critical thinking about AI's growing role in high-stakes decisions, not to declare AI good or bad.
+
+## Tech stack
+
+- React + Vite
+- Tailwind CSS
+- Groq API (Llama 3.3 70B) for decision analysis
+- Vercel (hosting + serverless functions)
+
+## Running locally
+
+```bash
+git clone <repo-url>
+cd decision-xray
+npm install
+vercel env add GROQ_API_KEY   # paste your Groq API key, select Development
+vercel dev
+```
+
+## Live demo
+
+[your deployed Vercel URL here]
+
+## AI Usage Disclosure
+
+See `AI_DISCLOSURE.md` for full details on how AI was used in building and running this project.
+
+## License
+
+Built solo for Hoobit Hacks 2026.

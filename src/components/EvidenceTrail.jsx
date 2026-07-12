@@ -8,12 +8,7 @@ export default function EvidenceTrail({ evidenceTrail }) {
   if (!evidenceTrail || evidenceTrail.length === 0) return null;
 
   return (
-    <div className="bg-panel border border-border rounded-lg p-4 mt-4">
-      <div className="text-xs text-gray-400 mb-1">Evidence Trail</div>
-      <div className="text-sm text-gray-300 mb-3">
-        Every conclusion traced back to what kind of evidence supports it.
-      </div>
-
+    <div>
       <div className="flex gap-4 mb-3 text-xs">
         {Object.entries(typeConfig).map(([key, cfg]) => (
           <div key={key} className={`flex items-center gap-1 ${cfg.color}`}>
